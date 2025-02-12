@@ -1,6 +1,7 @@
 import { ChatModelCard, ModelProviderCard } from '@/types/llm';
 
 import Ai21Provider from './ai21';
+// import CustomizeOpenAIProvider from './customizeOpenai'; #不显示在前端，只做向量化操作
 import Ai360Provider from './ai360';
 import AnthropicProvider from './anthropic';
 import AzureProvider from './azure';
@@ -84,6 +85,7 @@ export const LOBE_DEFAULT_MODEL_LIST: ChatModelCard[] = [
 ].flat();
 
 export const DEFAULT_MODEL_PROVIDER_LIST = [
+  // CustomizeOpenAIProvider,
   OpenAIProvider,
   { ...AzureProvider, chatModels: [] },
   OllamaProvider,
@@ -136,6 +138,7 @@ export const isProviderDisableBroswerRequest = (id: string) => {
 };
 
 export { default as Ai21ProviderCard } from './ai21';
+export { default as CustomizeOpenAIProviderCard } from './customizeOpenai';
 export { default as Ai360ProviderCard } from './ai360';
 export { default as AnthropicProviderCard } from './anthropic';
 export { default as AzureProviderCard } from './azure';
