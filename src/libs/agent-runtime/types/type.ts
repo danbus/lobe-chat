@@ -23,13 +23,13 @@ export interface CreateChatCompletionOptions {
 
 export enum ModelProvider {
   Ai21 = 'ai21',
-  CustomizeOpenAI = 'customizeopenai',
   Ai360 = 'ai360',
   Anthropic = 'anthropic',
   Azure = 'azure',
   Baichuan = 'baichuan',
   Bedrock = 'bedrock',
   Cloudflare = 'cloudflare',
+  CustomizeOpenAI = 'customizeopenai',
   DeepSeek = 'deepseek',
   Doubao = 'doubao',
   FireworksAI = 'fireworksai',

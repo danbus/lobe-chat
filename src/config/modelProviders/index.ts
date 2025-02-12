@@ -138,13 +138,13 @@ export const isProviderDisableBroswerRequest = (id: string) => {
 };
 
 export { default as Ai21ProviderCard } from './ai21';
-export { default as CustomizeOpenAIProviderCard } from './customizeOpenai';
 export { default as Ai360ProviderCard } from './ai360';
 export { default as AnthropicProviderCard } from './anthropic';
 export { default as AzureProviderCard } from './azure';
 export { default as BaichuanProviderCard } from './baichuan';
 export { default as BedrockProviderCard } from './bedrock';
 export { default as CloudflareProviderCard } from './cloudflare';
+export { default as CustomizeOpenAIProviderCard } from './customizeOpenai';
 export { default as DeepSeekProviderCard } from './deepseek';
 export { default as DoubaoProviderCard } from './doubao';
 export { default as FireworksAIProviderCard } from './fireworksai';

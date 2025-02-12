@@ -26,7 +26,6 @@ export interface CloudflareKeyVault {
 }
 
 export interface UserKeyVaults {
-  customizeopenai?:OpenAICompatibleKeyVault;
   ai21?: OpenAICompatibleKeyVault;
   ai360?: OpenAICompatibleKeyVault;
   anthropic?: OpenAICompatibleKeyVault;
@@ -34,6 +33,7 @@ export interface UserKeyVaults {
   baichuan?: OpenAICompatibleKeyVault;
   bedrock?: AWSBedrockKeyVault;
   cloudflare?: CloudflareKeyVault;
+  customizeopenai?: OpenAICompatibleKeyVault;
   deepseek?: OpenAICompatibleKeyVault;
   doubao?: OpenAICompatibleKeyVault;
   fireworksai?: OpenAICompatibleKeyVault;

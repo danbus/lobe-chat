@@ -2,12 +2,12 @@ import { AiFullModelCard, LobeDefaultAiModelListItem } from '@/types/aiModel';
 
 import { default as ai21 } from './ai21';
 import { default as ai360 } from './ai360';
-import { default as customizeopenai } from './customizeOpenai';
 import { default as anthropic } from './anthropic';
 import { default as azure } from './azure';
 import { default as baichuan } from './baichuan';
 import { default as bedrock } from './bedrock';
 import { default as cloudflare } from './cloudflare';
+import { default as customizeopenai } from './customizeOpenai';
 import { default as deepseek } from './deepseek';
 import { default as doubao } from './doubao';
 import { default as fireworksai } from './fireworksai';
@@ -64,12 +64,12 @@ const buildDefaultModelList = (map: ModelsMap): LobeDefaultAiModelListItem[] => 
 export const LOBE_DEFAULT_MODEL_LIST = buildDefaultModelList({
   ai21,
   ai360,
-  customizeopenai,
   anthropic,
   azure,
   baichuan,
   bedrock,
   cloudflare,
+  customizeopenai,
   deepseek,
   doubao,
   fireworksai,
@@ -107,12 +107,12 @@ export const LOBE_DEFAULT_MODEL_LIST = buildDefaultModelList({
 
 export { default as ai21 } from './ai21';
 export { default as ai360 } from './ai360';
-export { default as customizeopenai } from './customizeOpenai';
 export { default as anthropic } from './anthropic';
 export { default as azure } from './azure';
 export { default as baichuan } from './baichuan';
 export { default as bedrock } from './bedrock';
 export { default as cloudflare } from './cloudflare';
+export { default as customizeopenai } from './customizeOpenai';
 export { default as deepseek } from './deepseek';
 export { default as doubao } from './doubao';
 export { default as fireworksai } from './fireworksai';
