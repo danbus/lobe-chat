@@ -8,6 +8,7 @@ import { ChunkMetadata, FileChunk } from '@/types/chunk';
 import {
   NewChunkItem,
   NewUnstructuredChunkItem,
+  agents,
   chunks,
   embeddings,
   fileChunks,
@@ -22,7 +23,17 @@ export class ChunkModel {
 
   constructor(db: LobeChatDatabase, userId: string) {
     this.userId = userId;
-    this.db = db;
+    this.db = db
+  }
+
+  private async getAgentChunkLimit(agentId?: string) {
+    if (!agentId) return 10;
+
+    const agent = await this.db.query.agents.findFirst({
+      where: eq(agents.id, agentId),
+    });
+
+    return (agent?.chatConfig)?.chunkLimit;
   }
 
   bulkCreate = async (params: NewChunkItem[], fileId: string) => {
@@ -179,7 +190,9 @@ export class ChunkModel {
   semanticSearchForChat = async ({
     embedding,
     fileIds,
+    agentId    
   }: {
+    agentId: string;
     embedding: number[];
     fileIds: string[] | undefined;
     query: string;
@@ -207,9 +220,10 @@ export class ChunkModel {
       .leftJoin(files, eq(files.id, fileChunks.fileId))
       .where(inArray(fileChunks.fileId, fileIds))
       .orderBy((t) => desc(t.similarity))
-      .limit(5);
-
-    return result.map((item) => {
+      .limit(await this.getAgentChunkLimit(agentId));
+   
+      
+      return result.map((item) => {
       return {
         fileId: item.fileId,
         fileName: item.fileName,

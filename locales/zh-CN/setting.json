@@ -156,6 +156,10 @@
     "title": "助手信息"
   },
   "settingChat": {
+    "chunkLimit": {
+      "desc": "获取的分片数，如果相似资料过多，增加此参数",
+      "title": "查询分片数"
+    },
     "autoCreateTopicThreshold": {
       "desc": "当前消息数超过设定该值后，将自动创建话题",
       "title": "消息阈值"

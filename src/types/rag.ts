@@ -3,6 +3,7 @@ import { z } from 'zod';
 import { ChatSemanticSearchChunk } from '@/types/chunk';
 
 export const SemanticSearchSchema = z.object({
+  agentId: z.string().optional(),
   fileIds: z.array(z.string()).optional(),
   knowledgeIds: z.array(z.string()).optional(),
   messageId: z.string(),

@@ -109,6 +109,12 @@ const AgentChat = memo(() => {
         name: 'enableCompressHistory',
         valuePropName: 'checked',
       },
+      {
+        children: <SliderWithInput max={20} min={1} />,
+        desc: t('settingChat.chunkLimit.desc'),
+        label: t('settingChat.chunkLimit.title'),
+        name: 'chunkLimit',
+      },
     ],
     title: t('settingChat.title'),
   };

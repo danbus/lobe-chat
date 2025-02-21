@@ -149,6 +149,7 @@ export const chunkRouter = router({
         });
 
         const result = await ctx.messageModel.createMessageQuery({
+          agentId: input.agentId,
           embeddingsId,
           messageId: input.messageId,
           rewriteQuery: input.rewriteQuery,
@@ -173,6 +174,7 @@ export const chunkRouter = router({
       }
 
       const chunks = await ctx.chunkModel.semanticSearchForChat({
+        agentId: input.agentId,
         embedding,
         fileIds: finalFileIds,
         query: input.rewriteQuery,

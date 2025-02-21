@@ -156,6 +156,10 @@
     "title": "Assistant Information"
   },
   "settingChat": {
+    "chunkLimit": {
+      "desc": "Number of chunks retrieved. If there are too many similar materials, increase this parameter.",
+      "title": "Query Chunk Count"
+    },
     "autoCreateTopicThreshold": {
       "desc": "Automatically create a topic when the current message count exceeds this value",
       "title": "Message Threshold"

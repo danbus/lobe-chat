@@ -75,6 +75,7 @@ export const chatRag: StateCreator<ChatStore, [['zustand/devtools', never]], [],
     // 2. retrieve chunks from semantic search
     const files = chatSelectors.currentUserFiles(get()).map((f) => f.id);
     const { chunks, queryId } = await ragService.semanticSearchForChat({
+      agentId: useAgentStore.getState().activeAgentId,
       fileIds: knowledgeIds().fileIds.concat(files),
       knowledgeIds: knowledgeIds().knowledgeBaseIds,
       messageId: id,
