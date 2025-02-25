@@ -23,7 +23,7 @@ export class ChunkModel {
 
   constructor(db: LobeChatDatabase, userId: string) {
     this.userId = userId;
-    this.db = db
+    this.db = db;
   }
 
   private async getAgentChunkLimit(agentId?: string) {
@@ -33,7 +33,7 @@ export class ChunkModel {
       where: eq(agents.id, agentId),
     });
 
-    return (agent?.chatConfig)?.chunkLimit;
+    return (agent?.chatConfig as any)?.chunkLimit ?? 10;
   }
 
   bulkCreate = async (params: NewChunkItem[], fileId: string) => {
@@ -190,7 +190,7 @@ export class ChunkModel {
   semanticSearchForChat = async ({
     embedding,
     fileIds,
-    agentId    
+    agentId,
   }: {
     agentId: string;
     embedding: number[];
@@ -221,9 +221,8 @@ export class ChunkModel {
       .where(inArray(fileChunks.fileId, fileIds))
       .orderBy((t) => desc(t.similarity))
       .limit(await this.getAgentChunkLimit(agentId));
-   
-      
-      return result.map((item) => {
+
+    return result.map((item) => {
       return {
         fileId: item.fileId,
         fileName: item.fileName,
